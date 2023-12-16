@@ -1,0 +1,21 @@
+[tool.poetry]
+name = "p13-oc-lettings"
+version = "0.1.0"
+description = ""
+authors = ["LGD-P <nplgdjp@gmx.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "3.11.6"
+django = "^5.0"
+
+
+[tool.poetry.group.dev.dependencies]
+pytest = "^7.4.3"
+pytest-django = "^4.7.0"
+flake8 = "^6.1.0"
+flake8-html = "^0.4.3"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
