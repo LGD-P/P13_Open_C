@@ -3,6 +3,14 @@ from profiles.models import Profile
 
 
 def index(request):
+    """Displau the list of profiles
+
+    Args:
+        request (HttpRequest): The received HTTP request object.
+
+    Returns:
+        HttpResponse: The HTTP response object that displays the list of profiles.
+    """
     profiles_list = Profile.objects.all()
     context = {'profiles_list': profiles_list}
     return render(request, 'profiles/index.html', context)
@@ -14,6 +22,15 @@ def index(request):
 
 
 def profile(request, username):
+    """Render the profile page for a specific user.
+
+    Args:
+        request (HttpRequest): The request object.
+        username (str): The username of the user.
+
+    Returns:
+        HttpResponse: The rendered profile page.
+    """
     profile = get_object_or_404(Profile, user__username=username)
     context = {'profile': profile}
     return render(request, 'profiles/profile.html', context)

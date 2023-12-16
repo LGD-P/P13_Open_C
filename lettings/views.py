@@ -8,6 +8,14 @@ from lettings.models import Letting
 
 
 def index(request):
+    """Display the list of lettings.
+
+    Args:
+        request (HttpRequest): The received HTTP request object.
+
+    Returns:
+        HttpResponse: The HTTP response object that displays the list of lettings.
+    """
     lettings_list = Letting.objects.all()
     context = {'lettings_list': lettings_list}
     return render(request, 'lettings/index.html', context)
@@ -21,8 +29,17 @@ def index(request):
 # interdum. Ut quis urna pellentesque justo mattis ullamcorper ac non tellus. In tristique
 # mauris eu velit fermentum, tempus pharetra est luctus. Vivamus consequat aliquam libero,
 # eget bibendum lorem. Sed non dolor risus. Mauris condimentum auctor elementum. Donec quis nisi
-# ligula. Integer vehicula tincidunt enim, ac lacinia augue pulvinar sit amet.
+# ligula. Integer vehicula tincid unt enim, ac lacinia augue pulvinar sit amet.
 def letting(request, letting_id):
+    """Display details of a specific letting.
+
+    Args:
+        request (HttpRequest): The received HTTP request object.
+        letting_id (int): The ID of the letting to display.
+
+    Returns:
+        HttpResponse: The HTTP response object that displays the letting details.
+    """
     letting = get_object_or_404(Letting, id=letting_id)
     context = {
         'title': letting.title,
