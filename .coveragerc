@@ -1,0 +1,5 @@
+[run]
+omit = migrations/*, manage.py, wsgi.py, asgi.py, tests.py,__init__.py
+
+[report]
+exclude_lines = migrations/*, manage.py, wsgi.py, asgi.py, tests.py,__init__.py
