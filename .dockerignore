@@ -1,0 +1,9 @@
+*
+!lettings/**/*.py
+!profiles/**/*.py
+!oc_lettings_site/**/*.py
+!static
+!templates
+!manage.py
+!poetry.lock
+!pyproject.toml
