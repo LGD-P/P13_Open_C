@@ -16,26 +16,64 @@ jobs:
           pkg-manager: poetry
       - run:
           name: Run tests
-          command: pytest --cov=.
+          command: pytest --cov=. > cov-report.txt 
           # poetry run python manage.py test
       - run: 
-          name: Flake8
+          name: Flake8 > flake8-report.txt
           command: flake8 
 
-  build_publish:
+  build-publish:
     # This is an example deploy job, not actually used by the workflow
     docker:
-      - image: cimg/base:stable
+      - image: nplgdjp/oc-lettings-repo:latest
     steps:
-      # Replace this with steps to deploy to users
-      - run:
-          name: deploy
-          command: '#e.g. ./deploy.sh'
-          
+      
+      - run: 
+          name: login and build
+          command: |
+          docker login -u ${DOCKER_USER} -p ${DOCKER_TOKEN}
+          echo'You're logged'
+          build -t oc-lettings-docker-build .
+          echo'image built'
+
+      -run:
+          name: push
+          command: |
+          docker tag oc-lettings-docker-build:latest nplgdjp/oc-lettings-repo:latest
+          docker push nplgdjp/oc-lettings-repo:latest
+          echo'image pushed'
+
+
 workflows:
   build-and-test:
     jobs:
       - test-python
-    - deploy:
-      requires:
-        - test-python
+      - build-publish:
+          requires:
+            - test-python
+          filters:
+            branches:
+              only: master # The build-publish job will only run on the 'master' branch
+            steps:
+              - run:
+                  name: Check coverage # circleci step halt stop build if failed
+                  command: |
+                    cov_result=$(grep -w 'TOTAL' cov-report.txt | awk '{print $NF}' | tr -d '%')
+                    if [ "$cov_result" -gt 80 ]; then
+                      echo 'Tests cover more than 80% of your project'
+                    else
+                      echo 'Fail: Tests cover less than 80% of your project'
+                      circleci step halt
+                    fi
+
+              - run:
+                  name: Check flake8 # circleci step halt stop build if failed
+                  command: |
+                    flake8_result=$(grep -w 'E501' flake8-report.txt)
+                    if [ "$flake8_result" != "E501" ]; then
+                      echo 'Pass: Flake8 report without E501'
+                    else
+                      echo 'Fail: Flake8 report points to an E501 line - too long (104 > 99 characters)'
+                      circleci step halt
+                    fi
+
