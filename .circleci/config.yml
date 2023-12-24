@@ -32,16 +32,18 @@ jobs:
           name: login and build
           command: |
           docker login -u ${DOCKER_USER} -p ${DOCKER_TOKEN}
-          echo'You're logged'
-          build -t oc-lettings-docker-build .
-          echo'image built'
-
+          echo 'You'\'re logged'
+          docker build -t oc-lettings-docker-build .
+          echo 'image built'
       -run:
           name: push
           command: |
           docker tag oc-lettings-docker-build:latest nplgdjp/oc-lettings-repo:latest
           docker push nplgdjp/oc-lettings-repo:latest
-          echo'image pushed'
+          echo 'image pushed'
+
+ 
+          
 
 
 workflows:
