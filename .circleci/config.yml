@@ -12,8 +12,14 @@ jobs:
       - image: python:3.11.6
     steps:
       - checkout
-      #- python/install-packages: 
-      #    pkg-manager: poetry
+      - python/install-packages: 
+          pkg-manager: poetry
+      - run:
+        name: Poetry
+        command: |
+        poetry install 
+        poetry shell
+
       - run:
           name: Run tests 
           command: pytest --cov=. > cov-report.txt 
