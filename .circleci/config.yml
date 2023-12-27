@@ -13,7 +13,6 @@ jobs:
     steps:
       - checkout
       - python/install-packages: 
-        poetry-dependency-file = .pyproject.toml
         pkg-manager: poetry
 
       - run:
