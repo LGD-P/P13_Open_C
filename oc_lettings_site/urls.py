@@ -11,6 +11,7 @@ def trigger_error(request):
     logger.info('info')
     logger.error('error')
     division_by_zero = 1 / 0
+    return division_by_zero
 
 
 urlpatterns = [
