@@ -7,3 +7,6 @@
 !manage.py
 !poetry.lock
 !pyproject.toml
+!.flake8
+!setup.cfg
+!.coveragerc

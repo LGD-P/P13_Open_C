@@ -17,7 +17,7 @@ jobs:
 
       - run:
         name: Poetry
-        command: poetry shell
+        command: poetry install
 
       - run:
           name: Run tests 
