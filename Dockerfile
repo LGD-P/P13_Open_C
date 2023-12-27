@@ -10,8 +10,9 @@ ENV PYTHONDONTWRITEBYTECODE 1
 ENV PYTHONUNBUFFERED 1
 
 
-#pip install poetry
-RUN curl -sSL https://install.python-poetry.org | python3 - && export PATH="$HOME/.poetry/bin:$PATH"
+#curl -sSL https://install.python-poetry.org | python3 - && export PATH="$HOME/.poetry/bin:$PATH"
+RUN pip install poetry
+ 
 
 # Copy pyproject.toml in working directory
 COPY pyproject.toml poetry.lock /app/

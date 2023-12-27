@@ -12,8 +12,8 @@ jobs:
       - image: python:3.11.6
     steps:
       - checkout
-      - python/install-packages: 
-          pkg-manager: poetry
+      #- python/install-packages: 
+      #    pkg-manager: poetry
       - run:
           name: Run tests 
           command: pytest --cov=. > cov-report.txt 
@@ -27,7 +27,7 @@ jobs:
               echo 'Fail: Tests cover less than 80% of your project'
               circleci step halt
             fi 
-            
+
             test_failed=$(grep -w 'FAILED' cov-report.txt)
             if [ "$test_failed" = "" ]; then
               echo 'Pass: All tests passed'
