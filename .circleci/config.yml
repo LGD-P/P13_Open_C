@@ -4,7 +4,6 @@ version: 2.1
 
 orbs:
   python: circleci/python@2
-  
 
 jobs:
   test-python:
@@ -13,12 +12,17 @@ jobs:
       - image: python:3.11.6
     steps:
       - checkout
-  
+      - python/install-packages: 
+        poetry-dependency-file = pyproject.toml
+        pkg-manager: poetry
+
       - run:
-          name: Run tests
-          command: |
-          poetry install
-          poetry run pytest --cov=. > cov-report.txt
+        name: Poetry
+        command: poetry shell
+
+      - run:
+          name: Run tests 
+          command: pytest --cov=. > cov-report.txt 
       - run:
           name: Check coverage # circleci step halt stop build if failed
           command: |
@@ -39,7 +43,7 @@ jobs:
             fi
           
       - run: 
-          name: poetry run Flake8 > flake8-report.txt
+          name: Flake8 > flake8-report.txt
           command: flake8 
 
       - run:
