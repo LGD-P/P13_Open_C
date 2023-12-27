@@ -6,7 +6,7 @@ orbs:
   python: circleci/python@2
 
 jobs:
-  test-python:
+  coverage:
     # Install dependencies and run tests
     docker:
       - image: python:3.11.6
@@ -18,6 +18,7 @@ jobs:
       - run:
           name: Run tests 
           command: poetry run pytest --cov=. > cov-report.txt 
+
       - run:
           name: Check coverage # circleci step halt stop build if failed
           command: |
@@ -29,28 +30,19 @@ jobs:
               circleci step halt
             fi 
 
-            test_failed=$(grep -w 'FAILED' cov-report.txt)
-            if [ "$test_failed" = "" ]; then
-              echo 'Pass: All tests passed'
-            else
-              echo "Fail: $test_failed"
-              circleci step halt
-            fi
-          
-      - run: 
-          name: poetry run flake8 > flake8-report.txt
-          command: flake8 
+  flake8:
+    # Install dependencies and run tests
+    docker:
+      - image: python:3.11.6
+    steps:
+      - checkout
+      - python/install-packages: 
+        pkg-manager: poetry
 
-      - run:
-          name: Check flake8 # circleci step halt stop build if failed
-          command: |
-            flake8_result=$(grep -w 'E501' flake8-report.txt)
-            if [ "$flake8_result" != "E501" ]; then
-              echo 'Pass: Flake8 report without E501'
-            else
-              echo 'Fail: Flake8 report points to an E501 line - too long (104 > 99 characters)'
-              circleci step halt
-            fi
+      - run: 
+          name: flake8 
+          command: poetry run flake8
+          
 
   build-publish:
     # This is an example deploy job, not actually used by the workflow
@@ -76,10 +68,12 @@ jobs:
 workflows:
   build-and-test:
     jobs:
-      - test-python
+      - coverage
+      - flake8
       - build-publish:
           requires:
-            - test-python
+            - coverage
+            - flake8
           filters:
             branches:
               only: master # The build-publish job will only run on the 'master' branch
