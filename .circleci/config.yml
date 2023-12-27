@@ -12,15 +12,10 @@ jobs:
       - image: python:3.11.6
     steps:
       - checkout
-      #- python/install-packages: 
-       #   pkg-manager: poetry
+      - poetry/install
       - run:
-        name: Poetry
-        command: poetry shell
-
-      - run:
-          name: Run tests 
-          command: pytest --cov=. > cov-report.txt 
+          name: Run tests
+          command: poetry run pytest --cov=. > cov-report.txt
       - run:
           name: Check coverage # circleci step halt stop build if failed
           command: |
@@ -41,7 +36,7 @@ jobs:
             fi
           
       - run: 
-          name: Flake8 > flake8-report.txt
+          name: poetry run Flake8 > flake8-report.txt
           command: flake8 
 
       - run:
