@@ -16,9 +16,7 @@ jobs:
        #   pkg-manager: poetry
       - run:
         name: Poetry
-        command: |
-        poetry install 
-        poetry shell
+        command: poetry shell
 
       - run:
           name: Run tests 
