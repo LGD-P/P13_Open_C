@@ -15,11 +15,9 @@ jobs:
       - python/install-packages: 
         pkg-manager: poetry
 
-      - run: poetry install --no-ansi
-
       - run:
           name: Run tests 
-          command: pytest --cov=. > cov-report.txt 
+          command: poetry run pytest --cov=. > cov-report.txt 
       - run:
           name: Check coverage # circleci step halt stop build if failed
           command: |
@@ -40,7 +38,7 @@ jobs:
             fi
           
       - run: 
-          name: Flake8 > flake8-report.txt
+          name: poetry run flake8 > flake8-report.txt
           command: flake8 
 
       - run:

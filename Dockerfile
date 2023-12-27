@@ -11,15 +11,15 @@ ENV PYTHONUNBUFFERED 1
 
 
 #curl -sSL https://install.python-poetry.org | python3 - && export PATH="$HOME/.poetry/bin:$PATH"
-RUN pip install poetry
+RUN pip install poetry && export PATH="$PATH:$HOME/.poetry/bin"
  
 
 # Copy pyproject.toml in working directory
-COPY pyproject.toml poetry.lock /app/
+COPY pyproject.toml poetry.lock /app/ 
 
 
-# Install dependecies with Poetry
-RUN poetry install --only main
+# Install dependecies with Poetry --only main | poetry shell
+RUN poetry install --no-ansi
 
 # Copy the entire project in working directory
 COPY . /app/
