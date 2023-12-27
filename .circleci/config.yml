@@ -15,9 +15,7 @@ jobs:
       - python/install-packages: 
         pkg-manager: poetry
 
-      - run:
-        name: Poetry
-        command: poetry install
+      - run: poetry install
 
       - run:
           name: Run tests 
