@@ -45,25 +45,18 @@ jobs:
           
 
   build-publish:
-    # This is an example deploy job, not actually used by the workflow
     docker:
-      - image: nplgdjp/oc-lettings-repo:latest
+      - image: cimg/base:2023.12
     steps:
       - checkout
+      - setup_remote_docker
       - run: 
-          name: login and build
+          name: login build and push
           command: |
-            docker login -u ${DOCKER_USER} -p ${DOCKER_TOKEN}
-            echo 'You are logged'
-            docker build -t oc-lettings-docker-build .
-            echo 'image built'
-          
-      - run:
-          name: push
-          command: |
-            docker tag oc-lettings-docker-build:latest nplgdjp/oc-lettings-repo:latest
-            docker push nplgdjp/oc-lettings-repo:latest
-            echo 'image pushed'
+            TAG=0.1.$CIRCLE_BUILD_NUM
+            docker build -t $DOCKER_USER/oc-lettings-docker-build:$TAG .
+            echo $DOCKER_TOKEN | docker login -u $DOCKER_USER --password-stdin
+            docker push $DOCKER_USER/oc-lettings-docker-build:$TAG
 
 workflows:
   build-and-test:
