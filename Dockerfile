@@ -9,14 +9,16 @@ ENV PYTHONDONTWRITEBYTECODE 1
 # Ensures that Python output is logged to the terminal.
 ENV PYTHONUNBUFFERED 1
 
-RUN pip install poetry
+
+#pip install poetry
+RUN curl -sSL https://install.python-poetry.org | python3 -
 
 # Copy pyproject.toml in working directory
 COPY pyproject.toml poetry.lock /app/
 
 
-# Install dependecies with Poetry --only main
-RUN poetry install 
+# Install dependecies with Poetry
+RUN poetry install --only main
 
 # Copy the entire project in working directory
 COPY . /app/
