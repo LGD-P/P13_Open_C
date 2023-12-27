@@ -15,7 +15,7 @@ jobs:
       - python/install-packages: 
         pkg-manager: poetry
 
-      - run: poetry install
+      - run: poetry install --no-ansi
 
       - run:
           name: Run tests 
