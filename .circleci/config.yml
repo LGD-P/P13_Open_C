@@ -4,6 +4,7 @@ version: 2.1
 
 orbs:
   python: circleci/python@2
+  
 
 jobs:
   test-python:
@@ -12,7 +13,7 @@ jobs:
       - image: python:3.11.6
     steps:
       - checkout
-      - poetry/install
+  
       - run:
           name: Run tests
           command: poetry run pytest --cov=. > cov-report.txt
