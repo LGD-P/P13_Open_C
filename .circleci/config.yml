@@ -17,7 +17,9 @@ jobs:
 
       - run:
           name: Run tests 
-          command: poetry run pytest --cov=. > cov-report.txt 
+          command: |
+          rm -f cov-report.txt
+          poetry run pytest --cov=. > cov-report.txt 
 
       - run:
           name: Check coverage # circleci step halt stop build if failed
