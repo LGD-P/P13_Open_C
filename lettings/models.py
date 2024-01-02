@@ -22,7 +22,7 @@ class Address(models.Model):
     country_iso_code = models.CharField(max_length=3, validators=[MinLengthValidator(3)])
 
     class Meta:
-        verbose_name = "Adress"
+        verbose_name_plural = "Adresses"
 
     def __str__(self):
         """
