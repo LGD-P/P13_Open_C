@@ -10,3 +10,4 @@
 !manage.py
 !poetry.lock
 !pyproject.toml
+!migrate_and_run.sh
