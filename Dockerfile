@@ -24,8 +24,11 @@ RUN poetry install --no-ansi --only main
 # Copy the entire project in working directory
 COPY . /app/
 
+# Set execute permissions on entrypoint script
+RUN chmod +x /app/migrate_and_run.sh
+
 EXPOSE 8000
 
 # Run Django app 
-CMD ["poetry", "run", "python3", "manage.py", "migrate", "&&", "poetry", "run","python3", "manage.py", "runserver", "0.0.0.0:8000"]
+CMD ["/app/entrypoint.sh"]
 # CMD ["poetry", "run", "python", "manage.py", "runserver", "0.0.0.0:8000"]
