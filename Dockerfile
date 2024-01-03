@@ -30,5 +30,5 @@ RUN chmod +x /app/migrate_and_run.sh
 EXPOSE 8000
 
 # Run Django app 
-CMD ["/app/entrypoint.sh"]
+CMD ["/app/migrate_and_run.sh"]
 # CMD ["poetry", "run", "python", "manage.py", "runserver", "0.0.0.0:8000"]
