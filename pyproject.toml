@@ -11,6 +11,7 @@ django = "^5.0"
 python-dotenv = "^1.0.0"
 sentry-sdk = {version = "^1.39.1", extras = ["django"]}
 whitenoise = "^6.6.0"
+zopfli = "^0.2.3"
 gunicorn = "^21.2.0"
 
 [tool.poetry.group.dev.dependencies]
