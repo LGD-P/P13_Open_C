@@ -9,6 +9,8 @@ ENV PYTHONDONTWRITEBYTECODE 1
 # Ensures that Python output is logged to the terminal.
 ENV PYTHONUNBUFFERED 1
 
+# to avoid problem with bjoern dependences need
+RUN apt-get update && apt-get install -y libev-dev
 
 RUN pip install poetry 
 
@@ -17,18 +19,13 @@ ENV PATH="$PATH:$HOME/.poetry/bin"
 # Copy pyproject.toml in working directory
 COPY pyproject.toml poetry.lock /app/ 
 
-
 # Install dependecies with Poetry --only main | poetry shell
 RUN poetry install --no-ansi --only main
 
 # Copy the entire project in working directory
 COPY . /app/
 
-# Set execute permissions on entrypoint script
-RUN chmod +x /app/migrate_and_run.sh
-
 EXPOSE 8000
 
 # Run Django app 
-CMD ["/app/migrate_and_run.sh"]
-# CMD ["poetry", "run", "python", "manage.py", "runserver", "0.0.0.0:8000"]
+CMD ["poetry", "run", "gunicorn", "--bind", "0.0.0.0:8000", "oc_lettings_site.wsgi:application"]
