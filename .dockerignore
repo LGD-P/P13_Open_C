@@ -6,8 +6,10 @@
 !oc_lettings_site/**/*.py
 !oc_lettings_site/templates/
 !static
+!staticfiles
 !templates
 !manage.py
 !poetry.lock
 !pyproject.toml
 !migrate_and_run.sh
+!oc-lettings-site.sqlite3
