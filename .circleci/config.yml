@@ -60,7 +60,7 @@ jobs:
       - run:
           name: Trigger Render deploy
           command: |
-            curl -X GET "$DEPLOY_HOOKkey=$DEPLOY_HOOK_KEY&imgURL=docker.io%2F$DOCKER_USER%2Foc-lettings-docker-build%3A${TAG}"
+            curl -X GET "$DEPLOY_HOOK&imgURL=docker.io%2F$DOCKER_USER%2Foc-lettings-docker-build%3A${TAG}"
             
 
 workflows:
