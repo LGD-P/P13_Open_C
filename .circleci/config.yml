@@ -53,14 +53,14 @@ jobs:
       - run: 
           name: login build and push
           command: |
-            TAG=last-build
+            TAG=0.1.$CIRCLE_BUILD_NUM
             docker build -t $DOCKER_USER/oc-lettings-docker-build:$TAG .
             echo $DOCKER_TOKEN | docker login -u $DOCKER_USER --password-stdin
             docker push $DOCKER_USER/oc-lettings-docker-build:$TAG
       - run:
           name: Trigger Render deploy
           command: |
-            curl -X GET $DEPLOY_HOOK
+            curl -X GET "$DEPLOY_HOOK?key=$DEPLOY_HOOK_KEY&imgURL=docker.io%2F$DOCKER_USER%2Foc-lettings-docker-build%3A${TAG}"
             
 
 workflows:
