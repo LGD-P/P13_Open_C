@@ -28,7 +28,7 @@ Il s'appuie sur Python3.11 et :</p>
         <img src="https://cdn.freebiesupply.com/logos/large/2x/sentry-3-logo-svg-vector.svg" width="60" />
     </a>
     <a href="https://www.sphinx-doc.org/en/master/#">
-        <img src="https://www.sphinx-doc.org/en/master/_static/sphinx-logo.svg" width="60" style="filter: invert(100%);"/>
+        <img src="https://blog.expertrec.com/wp-content/uploads/2019/07/sphinxdoc.png" width="60"/>
     </a>
     <a href="https://docs.readthedocs.io/en/stable/#">
         <img src="https://docs.readthedocs.io/en/stable/_static/logo.svg" width="150" />
