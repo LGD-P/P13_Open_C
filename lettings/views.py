@@ -11,10 +11,10 @@ def index(request):
     """Display the list of lettings.
 
     Args:
-        request (HttpRequest): The received HTTP request object.
+        - request (HttpRequest): The received HTTP request object.
 
     Returns:
-        HttpResponse: The HTTP response object that displays the list of lettings.
+        - HttpResponse: The HTTP response object that displays the list of lettings.
     """
     lettings_list = Letting.objects.all()
     context = {'lettings_list': lettings_list}
