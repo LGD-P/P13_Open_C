@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Schema de Base de données: &mdash; OC-LETTINGS-SITE 1.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=19f00094" />
+
+  
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="_static/jquery.js?v=5d32c60e"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="_static/documentation_options.js?v=f2a433a1"></script>
+        <script src="_static/doctools.js?v=888ff710"></script>
+        <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Classes et Vues Django:" href="programming_interface.html" />
+    <link rel="prev" title="Technologie et language de programmation àn utiliser:" href="techno_to_use.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            OC-LETTINGS-SITE
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="description.html">Mettre à l’échelle une application Django, en utilisant une architecture modulaire.</a></li>
+<li class="toctree-l1"><a class="reference internal" href="install.html">Installation du projet:</a></li>
+<li class="toctree-l1"><a class="reference internal" href="starting_guide.html">Fonctionnement local:</a></li>
+<li class="toctree-l1"><a class="reference internal" href="techno_to_use.html">Technologie et language de programmation àn utiliser:</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Schema de Base de données:</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#la-base-de-donnees-de-l-application-oc-lettings-site">La base de données de l’application “oc_lettings_site” :</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#le-modele-profile">Le modèle “Profile” :</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#le-modele-letting">Le modèle “Letting”:</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#le-modele-address">Le modèle “Address” :</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="programming_interface.html">Classes et Vues Django:</a></li>
+<li class="toctree-l1"><a class="reference internal" href="programming_interface.html#profiles-app">PROFILES APP:</a></li>
+<li class="toctree-l1"><a class="reference internal" href="programming_interface.html#lettings-app">LETTINGS APP:</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">OC-LETTINGS-SITE</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Schema de Base de données:</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/data_base.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="schema-de-base-de-donnees">
+<span id="database"></span><h1>Schema de Base de données:<a class="headerlink" href="#schema-de-base-de-donnees" title="Link to this heading"></a></h1>
+<section id="la-base-de-donnees-de-l-application-oc-lettings-site">
+<h2>La base de données de l’application “oc_lettings_site” :<a class="headerlink" href="#la-base-de-donnees-de-l-application-oc-lettings-site" title="Link to this heading"></a></h2>
+<img alt="_images/db.png" class="align-center" src="_images/db.png" />
+</section>
+<hr class="docutils" />
+<section id="le-modele-profile">
+<h2>Le modèle “Profile” :<a class="headerlink" href="#le-modele-profile" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><dl class="simple">
+<dt>Il représente un profil d’utilisateur :</dt><dd><ul>
+<li><p>user (utilisateur) : une relation OneToOneField avec le modèle User de Django pour représenter le profil utilisateur associé.</p></li>
+<li><p>favorite_city (ville préférée) : une chaîne de caractères permettant de stocker la ville préférée de l’utilisateur. Ce champ peut être laissé vide (blank=True) si l’utilisateur n’a pas de ville préférée.</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</section>
+<section id="le-modele-letting">
+<h2>Le modèle “Letting”:<a class="headerlink" href="#le-modele-letting" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><dl class="simple">
+<dt>Il représente une annonce de location:</dt><dd><ul>
+<li><p>title (titre) : une chaîne de caractères pour stocker le titre de l’annonce de location.</p></li>
+<li><p>address (adresse) : une relation OneToOneField avec le modèle Address défini précédemment, pour représenter l’adresse de l’annonce de location.</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</section>
+<section id="le-modele-address">
+<h2>Le modèle “Address” :<a class="headerlink" href="#le-modele-address" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><dl class="simple">
+<dt>Il représente une adresse et possède les attributs suivants :</dt><dd><ul>
+<li><p>number (numéro) : un entier positif pour stocker le numéro de rue de l’adresse, avec une limite de validation de 9999.</p></li>
+<li><p>street (rue) : une chaîne de caractères de longueur maximale 64 pour stocker le nom de la rue.</p></li>
+<li><p>city (ville) : une chaîne de caractères de longueur maximale 64 pour stocker le nom de la ville.</p></li>
+<li><p>state (état) : une chaîne de caractères de longueur maximale 2 pour stocker l’abréviation à deux lettres de l’État.</p></li>
+<li><p>zip_code (code postal) : un entier positif pour stocker le code postal de l’adresse, avec une limite de validation de 99999.</p></li>
+<li><p>country_iso_code (code ISO du pays) : une chaîne de caractères de longueur maximale 3 pour stocker le code ISO à trois lettres du pays.</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+<p><em>En résumé, la base de données d’oc_lettings_site comprend des modèles pour représenter des profils d’utilisateurs,
+des annonces de location et des adresses. Les profils d’utilisateurs sont associés à un utilisateur Django existant,
+et les annonces de location sont liées à une adresse spécifique à l’aide d’une relation OneToOneField.</em></p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="techno_to_use.html" class="btn btn-neutral float-left" title="Technologie et language de programmation àn utiliser:" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="programming_interface.html" class="btn btn-neutral float-right" title="Classes et Vues Django:" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024, LGD.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

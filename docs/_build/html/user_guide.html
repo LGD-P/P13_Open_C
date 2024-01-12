@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Guide utilisateur : &mdash; OC-LETTINGS-SITE 1.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=19f00094" />
+
+  
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="_static/jquery.js?v=5d32c60e"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="_static/documentation_options.js?v=f2a433a1"></script>
+        <script src="_static/doctools.js?v=888ff710"></script>
+        <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Déploiement et Gestion de l’application :" href="deployment_process.html" />
+    <link rel="prev" title="Classes et Vues Django:" href="programming_interface.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            OC-LETTINGS-SITE
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="description.html">Mettre à l’échelle une application Django, en utilisant une architecture modulaire.</a></li>
+<li class="toctree-l1"><a class="reference internal" href="install.html">Installation du projet:</a></li>
+<li class="toctree-l1"><a class="reference internal" href="starting_guide.html">Démarrage rapide fonctionnement local:</a></li>
+<li class="toctree-l1"><a class="reference internal" href="techno_to_use.html">Technologies et languages de programmation à utiliser:</a></li>
+<li class="toctree-l1"><a class="reference internal" href="data_base.html">Schema de Base de données:</a></li>
+<li class="toctree-l1"><a class="reference internal" href="programming_interface.html">Classes et Vues Django:</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Guide utilisateur :</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#page-principale-index">Page Principale : index</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#lettings">Lettings :</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#profiles">Profiles :</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#l-interface-administrateur">L’interface administrateur :</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#cas-d-erreurs">Cas d’erreurs :</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="deployment_process.html">Déploiement et Gestion de l’application :</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">OC-LETTINGS-SITE</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Guide utilisateur :</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/user_guide.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="guide-utilisateur">
+<span id="user-guide"></span><h1>Guide utilisateur :<a class="headerlink" href="#guide-utilisateur" title="Link to this heading"></a></h1>
+<img alt="_images/oc-lettings-web.gif" src="_images/oc-lettings-web.gif" />
+<p>OC-LETTINGS-SITE est une application Django pour la gestion d’adresses
+de locations et de profils utilisateurs. Une fois déployée elle est accéssible depuis :</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://oc-lettings-url.onrender.com/">https://oc-lettings-url.onrender.com/</a></p></li>
+</ul>
+<section id="page-principale-index">
+<h2>Page Principale : index<a class="headerlink" href="#page-principale-index" title="Link to this heading"></a></h2>
+<p>Cette page donne accès à deux boutons Lettings et Profiles</p>
+</section>
+<section id="lettings">
+<h2>Lettings :<a class="headerlink" href="#lettings" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p>L’onglet “Lettings” vous permet de visualiser une liste de locations disponibles.</p></li>
+<li><p>Vous pouvez voir le titre de chaque location ainsi que son adresse associée.</p></li>
+<li><p>Vous pouvez cliquer sur une location pour voir plus de détails.</p></li>
+</ul>
+</section>
+<section id="profiles">
+<h2>Profiles :<a class="headerlink" href="#profiles" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p>L’onglet “Profiles” vous permet de voir la liste des profils d’utilisateurs.</p></li>
+<li><p>Chaque profil affiche le nom de l’utilisateur et sa ville préférée.</p></li>
+<li><p>Vous pouvez cliquer sur un profil pour afficher plus d’informations.</p></li>
+</ul>
+<p><em>L’onglet back permet de revenir à la page précédentes et home à la page principale</em></p>
+</section>
+<section id="l-interface-administrateur">
+<h2>L’interface administrateur :<a class="headerlink" href="#l-interface-administrateur" title="Link to this heading"></a></h2>
+<p>Une interface administrateur est accessible au super utilisateur déjà crée
+via l’uri /admin</p>
+<ul class="simple">
+<li><p>Username : LGD</p></li>
+<li><p>Password : …..</p></li>
+</ul>
+</section>
+<section id="cas-d-erreurs">
+<h2>Cas d’erreurs :<a class="headerlink" href="#cas-d-erreurs" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p>Une gestion des erreurs 404 et 500 est implémentée pour rediriger l’utilisateur vers un message classique d’erreur.</p></li>
+</ul>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="programming_interface.html" class="btn btn-neutral float-left" title="Classes et Vues Django:" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="deployment_process.html" class="btn btn-neutral float-right" title="Déploiement et Gestion de l’application :" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024, LGD.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

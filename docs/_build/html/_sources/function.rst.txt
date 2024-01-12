@@ -1,0 +1,20 @@
+.. _function:
+
+
+
+==================
+TEST SUR FONCTION:
+==================
+
+Classe Letting :
+----------------
+
+.. autoclass:: lettings.models.Letting
+   :members:
+   
+
+
+Function Letting :
+==================
+
+.. autofunction:: lettings.views.letting

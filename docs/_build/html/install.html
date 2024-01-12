@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Installation du projet: &mdash; OC-LETTINGS-SITE 1.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=19f00094" />
+
+  
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="_static/jquery.js?v=5d32c60e"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="_static/documentation_options.js?v=f2a433a1"></script>
+        <script src="_static/doctools.js?v=888ff710"></script>
+        <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Fonctionnement local:" href="starting_guide.html" />
+    <link rel="prev" title="Mettre à l’échelle une application Django, en utilisant une architecture modulaire." href="description.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            OC-LETTINGS-SITE
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="description.html">Mettre à l’échelle une application Django, en utilisant une architecture modulaire.</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Installation du projet:</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#cloner-le-projet">Cloner le projet:</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#installer-le-gestionnaire-de-dependances-poetry">Installer le gestionnaire de dépendances poetry:</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#activer-l-environnement-virtuel-depuis-p13-open-c">Activer l’environnement virtuel depuis P13_Open_C/:</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#installer-les-dependances">Installer les dépendances:</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#creer-et-pousser-l-image-sur-son-docker-hub">Créer et pousser l’image sur son Docker Hub:</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#les-variables-d-environnement">Les variables d’environnement :</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="starting_guide.html">Fonctionnement local:</a></li>
+<li class="toctree-l1"><a class="reference internal" href="techno_to_use.html">Technologie et language de programmation àn utiliser:</a></li>
+<li class="toctree-l1"><a class="reference internal" href="data_base.html">Schema de Base de données:</a></li>
+<li class="toctree-l1"><a class="reference internal" href="programming_interface.html">Classes et Vues Django:</a></li>
+<li class="toctree-l1"><a class="reference internal" href="programming_interface.html#profiles-app">PROFILES APP:</a></li>
+<li class="toctree-l1"><a class="reference internal" href="programming_interface.html#lettings-app">LETTINGS APP:</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">OC-LETTINGS-SITE</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Installation du projet:</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/install.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="installation-du-projet">
+<span id="install"></span><h1>Installation du projet:<a class="headerlink" href="#installation-du-projet" title="Link to this heading"></a></h1>
+<section id="cloner-le-projet">
+<h2>Cloner le projet:<a class="headerlink" href="#cloner-le-projet" title="Link to this heading"></a></h2>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/LGD-P/P13_Open_C.git
+</pre></div>
+</div>
+</section>
+<section id="installer-le-gestionnaire-de-dependances-poetry">
+<h2>Installer le gestionnaire de dépendances poetry:<a class="headerlink" href="#installer-le-gestionnaire-de-dependances-poetry" title="Link to this heading"></a></h2>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pip3<span class="w"> </span>install<span class="w"> </span>poetry
+</pre></div>
+</div>
+</section>
+<section id="activer-l-environnement-virtuel-depuis-p13-open-c">
+<h2>Activer l’environnement virtuel depuis P13_Open_C/:<a class="headerlink" href="#activer-l-environnement-virtuel-depuis-p13-open-c" title="Link to this heading"></a></h2>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>poetry<span class="w"> </span>shell
+</pre></div>
+</div>
+</section>
+<section id="installer-les-dependances">
+<h2>Installer les dépendances:<a class="headerlink" href="#installer-les-dependances" title="Link to this heading"></a></h2>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>poetry<span class="w"> </span>install
+poetry<span class="w"> </span>update
+</pre></div>
+</div>
+</section>
+<section id="creer-et-pousser-l-image-sur-son-docker-hub">
+<h2>Créer et pousser l’image sur son Docker Hub:<a class="headerlink" href="#creer-et-pousser-l-image-sur-son-docker-hub" title="Link to this heading"></a></h2>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>docker<span class="w"> </span>login<span class="w"> </span>-u<span class="w"> </span>votre-identifiant
+docker<span class="w"> </span>build<span class="w"> </span>-t<span class="w"> </span>oc-lettings-docker-build<span class="w"> </span>.
+docker<span class="w"> </span>tag<span class="w"> </span>oc-lettings-docker-build:latest<span class="w"> </span>votre-identifiant/oc-lettings-build:last-build
+docker<span class="w"> </span>push<span class="w"> </span>votre-identifiant/oc-lettings-build:latest
+</pre></div>
+</div>
+</section>
+<section id="les-variables-d-environnement">
+<h2>Les variables d’environnement :<a class="headerlink" href="#les-variables-d-environnement" title="Link to this heading"></a></h2>
+<p><em>Ce projet utilise dotenv et il vous faut adapter un certain nombre de variables d’environnement sur les différentes plateformes utilisées.</em></p>
+<ul class="simple">
+<li><p>Directement pour le projet Django dans .env</p></li>
+</ul>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nv">SENTRY_DNS</span><span class="w"> </span><span class="o">=</span><span class="s2">&quot;à récupérer sur Sentry&quot;</span>
+<span class="nv">SECRET_KEY</span><span class="o">=</span><span class="s2">&quot;à générer pour le fonctionnement de Django&quot;</span>
+</pre></div>
+</div>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="description.html" class="btn btn-neutral float-left" title="Mettre à l’échelle une application Django, en utilisant une architecture modulaire." accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="starting_guide.html" class="btn btn-neutral float-right" title="Fonctionnement local:" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024, LGD.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
