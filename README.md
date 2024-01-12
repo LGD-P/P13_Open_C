@@ -1,77 +1,87 @@
-## Résumé
 
-Site web d'Orange County Lettings
 
-## Développement local
+<p align = center>
+<img  src="img/logo.png" />
+</p>
 
-### Prérequis
+# OC Lettings
 
-- Compte GitHub avec accès en lecture à ce repository
-- Git CLI
-- SQLite3 CLI
-- Interpréteur Python, version 3.6 ou supérieure
+<p align = center>Mettre à l'échelle une application Django, en utilisant une architecture modulaire.
 
-Dans le reste de la documentation sur le développement local, il est supposé que la commande `python` de votre OS shell exécute l'interpréteur Python ci-dessus (à moins qu'un environnement virtuel ne soit activé).
+Basé sur un projet à forker : 
+- https://github.com/OpenClassrooms-Student-Center/Python-OC-Lettings-FR
 
-### macOS / Linux
+Il s'appuie sur Python3.11 et :</p>
 
-#### Cloner le repository
+<p align = center>
+    <a href="https://docs.djangoproject.com/fr/3.2/">    
+        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/django/django-plain.svg" 
+        width="65"/>
+    </a>
+    <a href="https://www.docker.com/">
+        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original-wordmark.svg" width="65"/>
+    </a>
+    <a href="https://circleci.com/">     
+      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/circleci/circleci-plain-wordmark.svg"  width="65"/>
+    </a>
+    <a href="https://sentry.io/welcome/">
+        <img src="https://cdn.freebiesupply.com/logos/large/2x/sentry-3-logo-svg-vector.svg" width="60" />
+    </a>
+    <a href="https://www.sphinx-doc.org/en/master/#">
+        <img src="https://www.sphinx-doc.org/en/master/_static/sphinx-logo.svg" width="60" />
+    </a>
+    <a href="https://docs.readthedocs.io/en/stable/#">
+        <img src="https://docs.readthedocs.io/en/stable/_static/logo.svg" width="150" />
+    </a>
+</p>
 
-- `cd /path/to/put/project/in`
-- `git clone https://github.com/OpenClassrooms-Student-Center/Python-OC-Lettings-FR.git`
+## But du project : 
+*Aborder au travers des bonnes pratiques DevOps, la phase de mise en production d'un project:*
+- Réduire une dette technique grace à :  
+    - la refonte de l'architecture du projet.
+    - la résolution de bug.
+    - la mise en place d'une politique de tests.
+    - le monitoring de certaines données avec Sentry.
+- Containerisation du projet avec Docker.
+- Automatisation des phases de tests, de contrôle qualité et de déployement, avec Circle Ci et Render.
+- Automatisation et déploiement de documentation avec Sphinx et Read the Docs.
 
-#### Créer l'environnement virtuel
 
-- `cd /path/to/Python-OC-Lettings-FR`
-- `python -m venv venv`
-- `apt-get install python3-venv` (Si l'étape précédente comporte des erreurs avec un paquet non trouvé sur Ubuntu)
-- Activer l'environnement `source venv/bin/activate`
-- Confirmer que la commande `python` exécute l'interpréteur Python dans l'environnement virtuel
-`which python`
-- Confirmer que la version de l'interpréteur Python est la version 3.6 ou supérieure `python --version`
-- Confirmer que la commande `pip` exécute l'exécutable pip dans l'environnement virtuel, `which pip`
-- Pour désactiver l'environnement, `deactivate`
+# Pré-requis : 
 
-#### Exécuter le site
+- Un compte DockerHub
+- Un compte Sentry
+- Un compte Circle Ci
+- Un compte Render
+- Un compte Read The Doc
 
-- `cd /path/to/Python-OC-Lettings-FR`
-- `source venv/bin/activate`
-- `pip install --requirement requirements.txt`
-- `python manage.py runserver`
-- Aller sur `http://localhost:8000` dans un navigateur.
-- Confirmer que le site fonctionne et qu'il est possible de naviguer (vous devriez voir plusieurs profils et locations).
 
-#### Linting
+# Installation du project:
 
-- `cd /path/to/Python-OC-Lettings-FR`
-- `source venv/bin/activate`
-- `flake8`
+## Cloner le projet:
+```bash
+    git clone https://github.com/LGD-P/P13_Open_C.git
+```
+## Installer le gestionnaire de dépendances poetry:<img src="https://python-poetry.org/images/logo-origami.svg" width=30>
+    
+    pip3 install poetry 
 
-#### Tests unitaires
+## Activer l'environnement virtuel depuis P13_Open_C/:
 
-- `cd /path/to/Python-OC-Lettings-FR`
-- `source venv/bin/activate`
-- `pytest`
+    poetry shell 
 
-#### Base de données
+## Installer les dépendances:
 
-- `cd /path/to/Python-OC-Lettings-FR`
-- Ouvrir une session shell `sqlite3`
-- Se connecter à la base de données `.open oc-lettings-site.sqlite3`
-- Afficher les tables dans la base de données `.tables`
-- Afficher les colonnes dans le tableau des profils, `pragma table_info(Python-OC-Lettings-FR_profile);`
-- Lancer une requête sur la table des profils, `select user_id, favorite_city from
-  Python-OC-Lettings-FR_profile where favorite_city like 'B%';`
-- `.quit` pour quitter
+    poetry install 
+    poetry update
 
-#### Panel d'administration
+## Créer et pousser l'image sur son Docker Hub    :
 
-- Aller sur `http://localhost:8000/admin`
-- Connectez-vous avec l'utilisateur `admin`, mot de passe `Abc1234!`
+```bash
+docker login -u votre-identifiant
+docker build -t oc-lettings-docker-build .
+docker tag oc-lettings-docker-build:latest votre-identifiant/oc-lettings-build:last-build
+docker push votre-identifiant/oc-lettings-build:latest
+```
 
-### Windows
-
-Utilisation de PowerShell, comme ci-dessus sauf :
-
-- Pour activer l'environnement virtuel, `.\venv\Scripts\Activate.ps1` 
-- Remplacer `which <my-command>` par `(Get-Command <my-command>).Path`
+Le site est désormais accéssible sur  : ==> https://oc-lettings-url.onrender.com
