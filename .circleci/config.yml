@@ -92,7 +92,7 @@ workflows:
       - build-docs:
           requires:
             - build-publish
-    filters:
-      branches:
-        only: master # The build-publish job will only run on the 'master' branch
+          filters:
+            branches:
+              only: master # The build-publish job will only run on the 'master' branch
     
