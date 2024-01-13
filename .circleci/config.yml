@@ -63,7 +63,22 @@ jobs:
           command: |
             source $BASH_ENV
             curl "$DEPLOY_HOOK&imgURL=docker.io%2F$DOCKER_USER%2Foc-lettings-docker-build%3A$TAG"
-            
+  
+  build-docs:
+    docker:
+      - image: cimg/python:3.11.6
+    steps:
+      - checkout
+      - run:
+          name: Install poetry
+          command: |
+            pip install poetry
+            poetry config virtualenvs.create false
+      - run:
+          name: Install dependencies and build docs
+          command: |
+            poetry install --with docs
+            poetry run sphinx-build -b html docs/ build/
 
 workflows:
   build-and-test:
@@ -74,7 +89,10 @@ workflows:
           requires:
             - coverage
             - flake8
-          filters:
-            branches:
-              only: master # The build-publish job will only run on the 'master' branch
-          
+      - build-docs:
+          requires:
+            - build-publish
+    filters:
+      branches:
+        only: master # The build-publish job will only run on the 'master' branch
+    
