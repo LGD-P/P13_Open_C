@@ -85,3 +85,5 @@ docker push votre-identifiant/oc-lettings-build:latest
 ```
 
 Le site est désormais accéssible sur  : ==> https://oc-lettings-url.onrender.com
+
+Et la documentation sur  : ==> https://p13-open-c.readthedocs.io/fr/latest/
