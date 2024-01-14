@@ -8,7 +8,7 @@
 
 import sys
 import os
-
+import django
 
 project = 'OC-LETTINGS-SITE'
 copyright = '2024, LGD'
@@ -17,6 +17,8 @@ release = '1.0'
 
 
 sys.path.insert(0, os.path.abspath('..'))
+os.environ['DJANGO_SETTINGS_MODULE'] = 'oc_lettings_site.settings'
+django.setup()
 
 
 # -- General configuration ---------------------------------------------------
