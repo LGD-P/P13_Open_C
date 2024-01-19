@@ -44,11 +44,15 @@ Profiles :
 L'interface administrateur : 
 ----------------------------
 
-Une interface administrateur est accessible au super utilisateur déjà crée
-via l'uri /admin
+Une interface administrateur est accessible au super utilisateur via l'uri /admin
 
-- Username : LGD 
-- Password : ..... 
+.. code-block:: python
+
+    poetry run python3 manage.py createsuperuser
+
+- Username : Votre super utilisateur
+- Password : Votre password
+
 
 
 Cas d'erreurs : 
