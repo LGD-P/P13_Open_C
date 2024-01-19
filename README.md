@@ -84,9 +84,24 @@ docker tag oc-lettings-docker-build:latest votre-identifiant/oc-lettings-build:l
 docker push votre-identifiant/oc-lettings-build:latest
 ```
 
+
+## Les variables d’environnement :
+
+Ce projet utilise dotenv et il vous faut adapter un certain nombre de variables d’environnement sur les différentes plateformes utilisées.
+
+- Directement pour le projet Django dans .env
+
+```bash
+SENTRY_DNS ="à récupérer sur Sentry"
+SECRET_KEY="à générer pour le fonctionnement de Django"
+```
+
+
 Le site est désormais accéssible sur  : ==> https://oc-lettings-url.onrender.com
 
 Et la documentation sur  : ==> https://p13-open-c.readthedocs.io/fr/latest/
+
+*pour plus d'information consulter la documentation*
 
 
 ## Fonctionnement de la pipeline :
