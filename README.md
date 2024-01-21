@@ -264,8 +264,8 @@ Et la documentation sur  : ==> https://p13-open-c.readthedocs.io/fr/latest/
 
   - **run (Trigger Render deploy)** : 
 
-    - cette étape déclenche un déploiement en appelant une URL de déclenchement (**$DEPLOY_HOOK**) 
-      avec l'URL de l'image Docker précédemment publiée.
+    - cette étape déclenche le déploiement en appelant le WebHook de Render (**$DEPLOY_HOOK**) 
+      et  l'URL de l'image Docker précédemment publiée.
 
 </details>
 
