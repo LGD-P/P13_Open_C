@@ -4,7 +4,7 @@ from django.contrib.auth.models import User
 
 class Profile(models.Model):
     """
-    This Class defines a Django model for representing a user’s profile.
+    This model represent a user’s profile.
 
     Classes:
         - Profile: A model representing a user's profile.
